@@ -34,10 +34,8 @@ class APPSettings(EnvReader):
     VERSION: str = '1.0.0'
     API_V1_PREFIX: str = "/api/v1"
     WS_PREFIX: str = "/ws"
-    PROJECT_NAME: str = "DocPlatform"
+    PROJECT_NAME: str = "FastAPI Boilerplate"
     MEDIA_URL: str = 'media/'
-    MEDIA_IMAGE_URL: str = f'{MEDIA_URL}images/'
-    MEDIA_DOCS_URL: str = f'{MEDIA_URL}docs/'
     STATIC_URL: str = 'static/'
     MEDIA_DIR: ClassVar[str] = os.path.join(BASE_DIR, 'media')
     STATIC_DIR: ClassVar[str] = os.path.join(BASE_DIR, 'static')
