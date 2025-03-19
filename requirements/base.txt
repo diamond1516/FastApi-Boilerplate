@@ -1,0 +1,17 @@
+fastapi[standard]
+sqlalchemy[asyncio]
+asyncpg
+pydantic
+pydantic-settings
+werkzeug
+fastapi-pagination
+fastapi-filter[sqlalchemy]
+pyjwt
+redis
+argon2-cffi
+boto3
+aiosmtplib
+aiofiles
+gunicorn
+aiohttp
+alembic
