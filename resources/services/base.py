@@ -6,18 +6,14 @@ from fastapi import Request
 from sqlalchemy import Result
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from managers.db.engine import get_db, db_helper
-from models.users import User
+from config.db import get_db, db_helper
 from utils import Payload
 from .decorators import permission
-# from config.db import db_helper, get_db
 from ..depends.current_payload import get_token_payload_or_none
-from ..depends.current_user import get_user_or_none
 
 ARGS_TYPE = {
     'db': Annotated[AsyncSession, Depends(get_db)],
     'payload': Annotated[Payload, Depends(get_token_payload_or_none)],
-    'user': Annotated[User, Depends(get_user_or_none)],
 }
 
 
@@ -33,12 +29,10 @@ class BaseService:
             request: Request,
             db: AsyncSession = None,
             payload: Payload = None,
-            user: User = None,
     ):
-        self.request = request
+        self.request: Request = request
         self.db: 'AsyncSession' = db
         self.payload: 'Payload' = payload
-        self.user: 'User' = user
 
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
