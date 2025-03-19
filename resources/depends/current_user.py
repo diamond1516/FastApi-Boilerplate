@@ -1,9 +1,6 @@
 __all__ = (
     'get_user_or_none',
-    'get_active_user',
-    'get_user_by_role',
     'user_or_none',
-    'active_user',
 )
 
 from typing import Union, Annotated
