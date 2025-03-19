@@ -31,6 +31,4 @@ async def get_user_or_none(
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='User does not exist')
 
 
-
-
 user_or_none = Annotated[User, Depends(get_user_or_none)]
