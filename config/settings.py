@@ -41,7 +41,6 @@ class APPSettings(EnvReader):
     STATIC_DIR: ClassVar[str] = os.path.join(BASE_DIR, 'static')
     TIME_ZONE: str = 'Asia/Tashkent'
     SERVER_HOST: str = 'localhost'
-    MAX_FILE_SIZE: int = 1024 * 1024 * 60
     DEBUG: bool = True
 
 
