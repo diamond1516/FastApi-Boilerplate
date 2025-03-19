@@ -12,7 +12,7 @@ from fastapi import Depends, status, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials
 from fastapi.security import HTTPBearer
 
-from utils import decode_jwt, Payload
+from utils.jwt import decode_jwt, Payload
 
 http_bearer = HTTPBearer(auto_error=True)
 

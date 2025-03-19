@@ -11,11 +11,13 @@ from typing import Union, Annotated
 from fastapi import Depends, status, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from managers.db.engine import get_db
-from models import User
+from config.db import get_db
+# from models import User
 from utils.jwt import Payload
 from .current_payload import get_token_payload_or_none, get_token_payload
 
+
+User = None
 
 async def get_user_or_none(
         db: Annotated[AsyncSession, Depends(get_db)],
