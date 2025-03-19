@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import timedelta, datetime
 from functools import cached_property
-from typing import Optional, Any, Union, Literal
+from typing import Optional, Any, Union
 
 import jwt
 
@@ -68,7 +68,6 @@ class JWT:
         self.secret_key = JWT_SETTINGS.JWT_SECRET_KEY
         self.algorithm = JWT_SETTINGS.ALGORITHM
         self.access_token_expire = JWT_SETTINGS.ACCESS_TOKEN_EXPIRE
-        self.refresh_token_expire = JWT_SETTINGS.REFRESH_TOKEN_EXPIRE
 
     @classmethod
     def set_payload(cls, obj, sub, payload, payload_fields):
@@ -90,21 +89,3 @@ class JWT:
             expiration=self.access_token_expire,
         )
 
-    @cached_property
-    def refresh(self) -> str:
-        return encode_jwt(
-            payload=self.payload,
-            secret_key=self.secret_key,
-            algorithm=self.algorithm,
-            expiration=self.refresh_token_expire,
-        )
-
-    def get_tokens(self, which: Literal['refresh', 'access', 'both'] = 'both') -> dict:
-
-        functions = {
-            'refresh': lambda: dict(refresh=self.refresh),
-            'access': lambda: dict(access=self.access),
-            'both': lambda: dict(access=self.access, refresh=self.refresh),
-        }
-
-        return functions[which]()

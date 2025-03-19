@@ -98,7 +98,6 @@ class JWTSettings(BaseSettings):
     JWT_SECRET_KEY: str
     JWT_PAYLOAD_FIELDS: tuple = ('id',)
     ACCESS_TOKEN_EXPIRE: timedelta = timedelta(days=10)
-    REFRESH_TOKEN_EXPIRE: timedelta = timedelta(days=10)
 
 
 DB_SETTINGS = DBSettings()
