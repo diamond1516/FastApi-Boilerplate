@@ -11,7 +11,8 @@ def app(_=None) -> FastAPI:
         version=APP_SETTINGS.VERSION,
         swagger_ui_parameters={
             "defaultModelsExpandDepth": -1,
-        }
+        },
+        lifespan=Server.lifespan,
     )
 
     @main.get('/', include_in_schema=False)
