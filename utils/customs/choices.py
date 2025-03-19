@@ -20,6 +20,7 @@ class BaseEnum(Enum):
 
 
 class IntEnum(int, BaseEnum):
+
     def __new__(cls, value):
         obj = int.__new__(cls, value)
         obj._value_ = value
