@@ -3,6 +3,8 @@ from fastapi import FastAPI, Request
 from config import APP_SETTINGS
 from config.server import Server
 
+
+
 def app(_=None) -> FastAPI:
 
     main = FastAPI(
