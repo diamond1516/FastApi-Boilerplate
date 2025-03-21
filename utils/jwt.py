@@ -88,4 +88,3 @@ class JWT:
             algorithm=self.algorithm,
             expiration=self.access_token_expire,
         )
-

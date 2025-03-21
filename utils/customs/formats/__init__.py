@@ -6,7 +6,6 @@ __all__ = (
 
 )
 
-
 from .base import BaseFormat
 from .datetime import Date, DateTime
 from .file import FileObject

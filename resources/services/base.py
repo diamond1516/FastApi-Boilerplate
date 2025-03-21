@@ -122,5 +122,3 @@ class BaseService:
         dynamic_method.__signature__ = sig
 
         return dynamic_method
-
-

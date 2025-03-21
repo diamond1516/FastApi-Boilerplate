@@ -10,5 +10,3 @@ def now(timezone: str = APP_SETTINGS.TIME_ZONE):
 
 def utcnow():
     return datetime.now(ZoneInfo('UTC'))
-
-

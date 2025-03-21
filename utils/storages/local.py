@@ -25,10 +25,8 @@ class LocalStorageManager(StorageManager):
             return upload_folder + new_filename
         raise ValueError("File type not supported")
 
-
     @classmethod
     def delete(cls, path):
         file_path = os.path.join(cls.MEDIA_DIR, path)
         if os.path.exists(file_path):
             os.remove(file_path)
-

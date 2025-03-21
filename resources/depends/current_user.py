@@ -15,6 +15,7 @@ from .current_payload import get_token_payload_or_none
 
 User = None
 
+
 async def get_user_or_none(
         db: Annotated[AsyncSession, Depends(get_db)],
         payload: Annotated[Payload, Depends(get_token_payload_or_none)],

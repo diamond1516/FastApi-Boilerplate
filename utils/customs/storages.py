@@ -11,6 +11,3 @@ from ..storages import LocalStorageManager
 
 class FileStorageManager(LocalStorageManager):
     file_classes = (UploadFile, FileObject)
-
-
-

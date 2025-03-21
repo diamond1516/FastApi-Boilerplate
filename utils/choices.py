@@ -8,8 +8,6 @@ class ProductStatus(IntEnum):
     REJECTED = 3
 
 
-
-
 class CommonStatus(IntEnum):
     REJECTED = -1
     PENDING = 0

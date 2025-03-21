@@ -6,4 +6,3 @@ __all__ = (
 
 from .base import BaseValidator
 from .classes import VehicleNumber, ListPhone
-

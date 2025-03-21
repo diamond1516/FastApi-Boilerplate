@@ -33,4 +33,3 @@ class StrEnum(str, BaseEnum):
         obj = str.__new__(cls, value)
         obj._value_ = value
         return obj
-

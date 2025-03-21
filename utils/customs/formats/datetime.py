@@ -49,8 +49,3 @@ class Date(BaseDatetime):
     json_schema = {"type": "date", "format": "date", "description": "Datetime to the field."}
     format = "%Y-%m-%d"
     validate_type = 'response'
-
-
-
-
-
