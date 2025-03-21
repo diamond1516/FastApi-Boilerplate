@@ -9,7 +9,6 @@ from fastapi import Depends, status, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from config.db import get_db
-# from models import User
 from utils.jwt import Payload
 from .current_payload import get_token_payload_or_none
 
