@@ -1,5 +1,5 @@
 import inspect
-from typing import Annotated, Sequence, Optional, Any, Callable, AsyncIterator, Iterable
+from typing import Annotated, Sequence, Optional, Any, Callable, AsyncIterator, Iterable, Type, TypeVar
 
 from fastapi import HTTPException, status, Depends
 from fastapi import Request
@@ -10,6 +10,8 @@ from config.db import get_db, db_helper
 from utils import Payload
 from .decorators import permission
 from ..depends.current_payload import get_token_payload_or_none
+
+T = TypeVar('T', bound='BaseService')
 
 ARGS_TYPE = {
     'db': Annotated[AsyncSession, Depends(get_db)],
@@ -122,3 +124,7 @@ class BaseService:
         dynamic_method.__signature__ = sig
 
         return dynamic_method
+
+    @classmethod
+    def annotated(cls: Type[T], *fields: str) -> type[Annotated[T, Depends]]:
+        return Annotated[cls, Depends(cls.create_service(*fields))]
